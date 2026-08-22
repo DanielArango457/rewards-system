@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "RewardsSystem API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5080" },
+    { "key": "customerId", "value": "C001" }
+  ],
+  "item": [
+    {
+      "name": "Register purchase (valid)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/purchases",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"amount\": 25000\n}"
+        }
+      }
+    },
+    {
+      "name": "Register purchase (invalid amount)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/purchases",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"amount\": -100\n}"
+        }
+      }
+    },
+    {
+      "name": "Register purchase (non-numeric amount)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/purchases",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"amount\": \"abc\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get points balance",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/points/{{customerId}}"
+      }
+    },
+    {
+      "name": "Redeem points (valid)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/redemptions",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"points\": 5\n}"
+        }
+      }
+    },
+    {
+      "name": "Redeem points (insufficient balance)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/redemptions",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"points\": 999999\n}"
+        }
+      }
+    }
+  ]
+}
