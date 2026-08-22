@@ -97,6 +97,7 @@ dotnet test
 dotnet new sln -n RewardsSystem
 dotnet sln add RewardsSystem/RewardsSystem.csproj RewardsSystem.Tests/RewardsSystem.Tests.csproj
 ```
+El archivo `RewardsSystem.slnx` ya está incluido en el repositorio, así que puedes abrir la solución directamente con `dotnet build RewardsSystem.slnx` o desde Visual Studio.
 
 La API queda disponible en `http://localhost:5080`, con Swagger en `http://localhost:5080/swagger`
 para explorar y probar los endpoints desde el navegador.
