@@ -89,4 +89,14 @@ public class RewardsServiceTests
         Assert.Throws<InvalidPointsException>(() =>
             service.RedeemPoints(new RedeemPointsRequest { CustomerId = "C001", Points = 0 }));
     }
+  
+    [Fact]
+    public void GetPointsBalance_ForNewCustomerWithNoPurchases_ReturnsZero()
+    {
+        var service = CreateService();
+
+        var balance = service.GetPointsBalance("NEW_CUSTOMER");
+
+        Assert.Equal(0, balance.PointsBalance);
+    }  
 }
