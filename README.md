@@ -125,3 +125,7 @@ Sugerencia de commits descriptivos usando Conventional Commits:
 - `feat: add global exception handling middleware`
 - `test: add unit tests for RewardsService`
 - `docs: add README with setup instructions`
+
+## Estado del proyecto
+
+Proyecto probado y funcional en Swagger — última verificación completa el 27 de agosto de 2026.
